@@ -1,6 +1,3 @@
-using System;
-using Unity.Mathematics;
-using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
 public class BubbleSpawner : MonoBehaviour
@@ -25,7 +22,7 @@ public class BubbleSpawner : MonoBehaviour
         foreach (float longitude in longitudes) {
             foreach (float latitude in latitudes) {
                 WorldCoords coord = convertToWorldCoords(latitude, longitude);
-                Vector3 spawnPos = new Vector3(coord.x, coord.y, 0f);
+                Vector3 spawnPos = new Vector3(coord.x, coord.y, -1f);
                 GameObject newBubble = Instantiate(bubblePrefab, spawnPos, Quaternion.identity);
             }
         }

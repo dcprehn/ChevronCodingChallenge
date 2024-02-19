@@ -12,6 +12,12 @@ public class BubbleController : MonoBehaviour
     private float hoverMax;
     private float hoverSpeed;
 
+    // original position variable
+    private Vector2 originalPosition;
+
+    //  Marker prefab
+    public GameObject markerPrefab;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -22,6 +28,8 @@ public class BubbleController : MonoBehaviour
         hoverMin = transform.localPosition.y - 10f;
         hoverMax = transform.localPosition.y + 10f;
         hoverSpeed = (hoverMax - hoverMin) / 5f;
+
+        originalPosition = transform.localPosition;
     }
 
     
@@ -34,6 +42,19 @@ public class BubbleController : MonoBehaviour
         if (transform.localScale.x < scaleMin || transform.localScale.x > scaleMax) {
             scaleSpeed *= -1;
         }
-        transform.localScale += new Vector3(scaleSpeed, scaleSpeed, scaleSpeed) * Time.deltaTime;
+        transform.localScale += new Vector3(scaleSpeed, scaleSpeed, 0f) * Time.deltaTime;
+    }
+
+    public void pop()
+    {
+        // Calculate the marker position, based on the original position of the bubble
+        // Marker should be positioned so that the tip is positioned at the bubble's center
+        SpriteRenderer markerSprite = markerPrefab.GetComponent<SpriteRenderer>();
+        float markerHeight = markerSprite.sprite.bounds.size.y;
+        Vector2 markerPosition = new(originalPosition.x, originalPosition.y + (markerHeight * markerPrefab.transform.localScale.y / 2f));
+        // Create the marker
+        Instantiate(markerPrefab, markerPosition, markerPrefab.transform.rotation);
+        // Delete the bubble
+        Destroy(gameObject);
     }
 }
