@@ -18,6 +18,27 @@ public class BubbleController : MonoBehaviour
     //  Marker prefab
     public GameObject markerPrefab;
 
+    // Sprites
+    private Sprite redBubbleSprite;
+    private Sprite greenBubbleSprite;
+    private Sprite yellowBubbleSprite;
+    private Sprite blueBubbleSprite;
+
+    // Bubble color enum
+    public enum BubbleColors {
+        Red,
+        Yellow,
+        Green,
+        Blue
+    };
+
+    private void Awake() {
+        redBubbleSprite = Resources.Load<Sprite>("Sprites/bubble_red");
+        greenBubbleSprite = Resources.Load<Sprite>("Sprites/bubble_green");
+        yellowBubbleSprite = Resources.Load<Sprite>("Sprites/bubble_yellow");
+        blueBubbleSprite = Resources.Load<Sprite>("Sprites/bubble_blue");
+    }
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -56,5 +77,29 @@ public class BubbleController : MonoBehaviour
         Instantiate(markerPrefab, markerPosition, markerPrefab.transform.rotation);
         // Delete the bubble
         Destroy(gameObject);
+    }
+
+    public void switchColor(BubbleColors color) {
+        Sprite chosenSprite = null;
+        switch (color) {
+            case BubbleColors.Blue:
+                chosenSprite = (Sprite)blueBubbleSprite;
+                break;
+            case BubbleColors.Green:
+                chosenSprite = (Sprite)greenBubbleSprite;
+                break;
+            case BubbleColors.Red:
+                chosenSprite = (Sprite)redBubbleSprite;
+                break;
+            case BubbleColors.Yellow:
+                chosenSprite = (Sprite)yellowBubbleSprite;
+                break;
+        }
+
+        if (chosenSprite != null) {
+            this.GetComponent<SpriteRenderer>().sprite = chosenSprite;
+        } else {
+            Debug.Log("Sprite not found! Color was " + color.ToString());
+        }
     }
 }
