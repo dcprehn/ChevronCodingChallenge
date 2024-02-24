@@ -25,6 +25,7 @@
 
 # Github plugin
 /[Aa]ssets/Plugins/Github
+/[Aa]ssets/Plugins/Github.meta
 
 # Plugin metadata
 /[Aa]ssets/Plugins.meta
