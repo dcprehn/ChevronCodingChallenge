@@ -5,4 +5,13 @@ using System;
 public class TimeDateSO : ScriptableObject
 {
     public DateTime time;
+    public bool isPaused;
+
+    public void Pause() {
+        isPaused = true;
+    }
+
+    public void Resume() {
+        isPaused = false;
+    }
 }

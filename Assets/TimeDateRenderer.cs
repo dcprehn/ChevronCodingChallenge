@@ -10,12 +10,15 @@ public class TimeDateRenderer : MonoBehaviour
     void Start()
     {
         timeDateSO.time = new DateTime(2024, 2, 26);
+        timeDateSO.isPaused = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timeDateSO.time = timeDateSO.time.AddMinutes(1f);
-        timeDateText.text = timeDateSO.time.ToString();
+        if (!timeDateSO.isPaused) {
+            timeDateSO.time = timeDateSO.time.AddMinutes(1f);
+            timeDateText.text = timeDateSO.time.ToString();
+        }
     }
 }
