@@ -17,12 +17,17 @@ public class BubbleController : MonoBehaviour
 
     //  Marker prefab
     public GameObject markerPrefab;
+    private Sprite chosenMarkerSprite;
 
     // Sprites
     private Sprite redBubbleSprite;
     private Sprite greenBubbleSprite;
     private Sprite yellowBubbleSprite;
     private Sprite blueBubbleSprite;
+    private Sprite redMarkerSprite;
+    private Sprite greenMarkerSprite;
+    private Sprite yellowMarkerSprite;
+    private Sprite blueMarkerSprite;
 
     // Bubble color enum
     public enum BubbleColors {
@@ -73,6 +78,7 @@ public class BubbleController : MonoBehaviour
         SpriteRenderer markerSprite = markerPrefab.GetComponent<SpriteRenderer>();
         float markerHeight = markerSprite.sprite.bounds.size.y;
         Vector2 markerPosition = new(originalPosition.x, originalPosition.y + (markerHeight * markerPrefab.transform.localScale.y / 2f));
+        markerPrefab.GetComponent<SpriteRenderer>().sprite = chosenMarkerSprite;
         // Create the marker
         Instantiate(markerPrefab, markerPosition, markerPrefab.transform.rotation);
         // Delete the bubble
@@ -83,23 +89,30 @@ public class BubbleController : MonoBehaviour
         Sprite chosenSprite = null;
         switch (color) {
             case BubbleColors.Blue:
-                chosenSprite = (Sprite)blueBubbleSprite;
+                chosenSprite = blueBubbleSprite;
+                chosenMarkerSprite = Resources.Load<Sprite>("Sprites/marker_blue");
                 break;
             case BubbleColors.Green:
-                chosenSprite = (Sprite)greenBubbleSprite;
+                chosenSprite = greenBubbleSprite;
+                chosenMarkerSprite = Resources.Load<Sprite>("Sprites/marker_green");
                 break;
             case BubbleColors.Red:
-                chosenSprite = (Sprite)redBubbleSprite;
+                chosenSprite = redBubbleSprite;
+                chosenMarkerSprite = Resources.Load<Sprite>("Sprites/marker_red");
                 break;
             case BubbleColors.Yellow:
-                chosenSprite = (Sprite)yellowBubbleSprite;
+                chosenSprite = yellowBubbleSprite;
+                chosenMarkerSprite = Resources.Load<Sprite>("Sprites/marker_yellow");
                 break;
         }
 
         if (chosenSprite != null) {
             this.GetComponent<SpriteRenderer>().sprite = chosenSprite;
         } else {
-            Debug.Log("Sprite not found! Color was " + color.ToString());
+            Debug.Log("Bubble sprite not found! Color was " + color.ToString());
+        }
+        if (chosenMarkerSprite == null) {
+            Debug.Log("Marker sprite not found! Color was " + color.ToString());
         }
     }
 }
