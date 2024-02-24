@@ -11,6 +11,7 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2024-02-29 00:00:00", EnergyType.Coal, 31.23042f, 121.4737f, "China"));
         events.Add(new EnergyGameEvent("2024-03-02 00:00:00", EnergyType.Gas, 52.52001f, 13.40495f, "Germany"));
         events.Add(new InfoGameEvent("2024-02-27 00:00:00", "This is a test message. Hello Devin!"));
+        events.Add(new EnergyGameEvent("2024-02-28 00:00:00", EnergyType.Geothermal, 25.264387f, -80.57059f, "Germany"));
     }
 
     // Update is called once per frame

@@ -54,7 +54,7 @@ public class PowerPlantController : MonoBehaviour
         // Calculate position
         this.transform.localPosition = convertToWorldCoords();
         // Set up bubble
-        bubble = Instantiate(bubblePrefab, this.transform.localPosition, Quaternion.identity);
+        bubble = Instantiate(bubblePrefab, this.transform);
         chooseBubbleSprite();
     }
 

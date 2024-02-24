@@ -21,6 +21,9 @@ public class InfoGameEvent : GameEvent
             GameObject dialog = GameObject.Instantiate(dialogPrefab, canvasUI.transform);
             dialog.transform.localPosition = new Vector3(0f, 0f, -1f);
             dialog.GetComponent<Dialog>().SetDescription(description);
+            dialog.GetComponent<Dialog>().SetNegativeButtonVisible(false);
+            dialog.GetComponent<Dialog>().SetPositiveButtonVisible(false);
+            dialog.GetComponent<Dialog>().SetCloseButtonVisible(false);
             dialog.GetComponent<Dialog>().Show();
             timeDateSO.Pause();
 

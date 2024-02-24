@@ -24,10 +24,6 @@ public class BubbleController : MonoBehaviour
     private Sprite greenBubbleSprite;
     private Sprite yellowBubbleSprite;
     private Sprite blueBubbleSprite;
-    private Sprite redMarkerSprite;
-    private Sprite greenMarkerSprite;
-    private Sprite yellowMarkerSprite;
-    private Sprite blueMarkerSprite;
 
     private void Awake() {
         redBubbleSprite = Resources.Load<Sprite>("Sprites/bubble_red");
@@ -72,7 +68,8 @@ public class BubbleController : MonoBehaviour
         Vector2 markerPosition = new(originalPosition.x, originalPosition.y + (markerHeight * markerPrefab.transform.localScale.y / 2f));
         markerPrefab.GetComponent<SpriteRenderer>().sprite = chosenMarkerSprite;
         // Create the marker
-        Instantiate(markerPrefab, markerPosition, markerPrefab.transform.rotation);
+        GameObject marker = Instantiate(markerPrefab, this.transform.parent);
+        marker.transform.localPosition += new Vector3(0f, markerSprite.sprite.bounds.size.y * markerPrefab.transform.localScale.y / 2f, 0f);
         // Delete the bubble
         Destroy(gameObject);
     }

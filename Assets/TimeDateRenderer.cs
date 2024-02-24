@@ -6,6 +6,7 @@ public class TimeDateRenderer : MonoBehaviour
 {
     public TMP_Text timeDateText;
     public TimeDateSO timeDateSO;
+    public float timeDelta;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +18,7 @@ public class TimeDateRenderer : MonoBehaviour
     void Update()
     {
         if (!timeDateSO.isPaused) {
-            timeDateSO.time = timeDateSO.time.AddMinutes(1f);
+            timeDateSO.time = timeDateSO.time.AddSeconds(timeDelta);
             timeDateText.text = timeDateSO.time.ToString();
         }
     }
