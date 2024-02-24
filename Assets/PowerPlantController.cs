@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class PowerPlantController : MonoBehaviour
 {
-    public struct Coords {
-        public float latitude;
-        public float longitude;
-    };
     public Coords coords;
     public EnergyType energyType;
     public string country;
@@ -41,10 +37,10 @@ public class PowerPlantController : MonoBehaviour
             case EnergyType.Coal:
             case EnergyType.Gas:
             case EnergyType.Oil:
-                bubble.GetComponent<BubbleController>().switchColor(BubbleController.BubbleColors.Red);
+                bubble.GetComponent<BubbleController>().switchColor(BubbleColors.Red);
                 break;
             default:
-                bubble.GetComponent<BubbleController>().switchColor(BubbleController.BubbleColors.Green);
+                bubble.GetComponent<BubbleController>().switchColor(BubbleColors.Green);
                 break;
         }
     }
@@ -82,6 +78,11 @@ public enum EnergyType {
     Nuclear,
     Oil,
     Solar,
-    Thermal,
+    Geothermal,
     Wind
 }
+
+public struct Coords {
+    public float latitude;
+    public float longitude;
+};

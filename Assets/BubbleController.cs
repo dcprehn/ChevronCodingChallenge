@@ -29,14 +29,6 @@ public class BubbleController : MonoBehaviour
     private Sprite yellowMarkerSprite;
     private Sprite blueMarkerSprite;
 
-    // Bubble color enum
-    public enum BubbleColors {
-        Red,
-        Yellow,
-        Green,
-        Blue
-    };
-
     private void Awake() {
         redBubbleSprite = Resources.Load<Sprite>("Sprites/bubble_red");
         greenBubbleSprite = Resources.Load<Sprite>("Sprites/bubble_green");
@@ -116,3 +108,11 @@ public class BubbleController : MonoBehaviour
         }
     }
 }
+
+// Bubble color enum
+public enum BubbleColors {
+    Red,
+    Yellow,
+    Green,
+    Blue
+};

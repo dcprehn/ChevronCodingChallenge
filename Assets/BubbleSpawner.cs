@@ -7,7 +7,7 @@ public class BubbleSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SpawnPowerPlants();
+        //SpawnPowerPlants();
     }
 
     void SpawnPowerPlants() {
@@ -19,7 +19,7 @@ public class BubbleSpawner : MonoBehaviour
             foreach (float latitude in latitudes) {
                 Vector3 spawnPos = new Vector3(0f, 0f, 0f);
                 GameObject newPowerPlant = Instantiate(powerPlantPrefab, spawnPos, Quaternion.identity);
-                PowerPlantController.Coords spawnCoords;
+                Coords spawnCoords;
                 spawnCoords.latitude = latitude;
                 spawnCoords.longitude = longitude;
                 Array energyTypes = Enum.GetValues(typeof(EnergyType));

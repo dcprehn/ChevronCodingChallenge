@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 67305285}
   - component: {fileID: 67305284}
   - component: {fileID: 67305286}
+  - component: {fileID: 67305287}
   m_Layer: 0
   m_Name: SimulationController
   m_TagString: Untagged
@@ -182,6 +183,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeDateText: {fileID: 94150316}
+  timeDateSO: {fileID: 11400000, guid: 54ad0da61b62e494b9506e9b7d60a705, type: 2}
+--- !u!114 &67305287
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67305283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bf9b1eeac9017b48a3f39741d3fcace, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   timeDateSO: {fileID: 11400000, guid: 54ad0da61b62e494b9506e9b7d60a705, type: 2}
 --- !u!1 &94150315
 GameObject:
