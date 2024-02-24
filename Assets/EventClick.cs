@@ -9,7 +9,7 @@ public class EventClick : MonoBehaviour, IPointerClickHandler
         // Check if the clicked game object is a bubble
         if (gameObject.CompareTag("Bubble")) {
             BubbleController bubbleController = GetComponent<BubbleController>();
-            bubbleController.pop();
+            bubbleController.Pop();
         }
     }
 }
