@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System;
+using System.Globalization;
 
 public class TimeDateRenderer : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class TimeDateRenderer : MonoBehaviour
     {
         if (!timeDateSO.isPaused) {
             timeDateSO.time = timeDateSO.time.AddSeconds(timeDelta);
-            timeDateText.text = timeDateSO.time.ToString();
+            timeDateText.text = timeDateSO.time.ToString(CultureInfo.InvariantCulture);
         }
     }
 }
