@@ -17,7 +17,6 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2024-03-08 00:00:00", EnergyType.Gas, 25.9400f, 49.6880f, "Saudi Arabia"));
         events.Add(new EnergyGameEvent("2024-03-11 00:00:00", EnergyType.Oil, 48.7872f, 2.4033f, "France"));
         events.Add(new InfoGameEvent("2024-03-12 00:00:00", "Red bubbles are indicators that a non-renewable energy plant has been created. Too many red bubbles will lose you the game! Red bubbles can be a result of neglecting a country’s energy needs, economic struggles, or political power moves"));
-        events.Add(new TradeGameEvent("2024-03-13 00:00:00", 32.1944f, 119.6998f, 25.9400f, 49.6880f));
         //Wind power is purchased
         //***ADD PURCHASING EVENT***//
         events.Add(new InfoGameEvent("2024-05-10 00:00:00", "Wind power is the cheapest renewable energy per kWh. China is the world leader in wind power generating 655,600 GWh. Did you know that offshore wind power has the potential of generating 18 time the current global energy demand!"));
