@@ -8,6 +8,7 @@ public class EventManager : MonoBehaviour
     void Start()
     {
         events = new();
+
         //Welcome message
         events.Add(new InfoGameEvent("2024-02-25 00:00:00", "Welcome to New Day! Keep an eye out for pop-up suggestions for a better experience."));
         
@@ -16,9 +17,10 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2024-03-08 00:00:00", EnergyType.Gas, 25.9400f, 49.6880f, "Saudi Arabia"));
         events.Add(new EnergyGameEvent("2024-03-11 00:00:00", EnergyType.Oil, 48.7872f, 2.4033f, "France"));
         events.Add(new InfoGameEvent("2024-03-12 00:00:00", "Red bubbles are indicators that a non-renewable energy plant has been created. Too many red bubbles will lose you the game! Red bubbles can be a result of neglecting a country’s energy needs, economic struggles, or political power moves"));
+        events.Add(new TradeGameEvent("2024-03-13 00:00:00", 32.1944f, 119.6998f, 25.9400f, 49.6880f));
         //Wind power is purchased
         //***ADD PURCHASING EVENT***//
-        //events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Wind power is the cheapest renewable energy per kWh. China is the world leader in wind power generating 655,600 GWh. Did you know that offshore wind power has the potential of generating 18 time the current global energy demand!"));
+        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Wind power is the cheapest renewable energy per kWh. China is the world leader in wind power generating 655,600 GWh. Did you know that offshore wind power has the potential of generating 18 time the current global energy demand!"));
         
         //Green bubble appears at mines
         events.Add(new EnergyGameEvent("2024-05-10 00:00:00", EnergyType.Wind, 39.7606f, -105.2150f, "Colorado School of Mines"));
@@ -33,7 +35,7 @@ public class EventManager : MonoBehaviour
         events.Add(new InfoGameEvent("2024-08-05 00:00:00", "It looks like renewable energy is spreading! Each region has different energy needs that utilize some technologies better than others. Keep upgrading the ‘Renewable Fuels’ branch in the technology tree to find out what technologies are used in each region and why."));
         //Solar power is purchased
         //***ADD PURCHASING EVENT***//
-        //events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Solar power is the most abundant and popular renewable energy source globally, accounting for 3.6% of the global energy needs today. Solar power is best used in sunny climates in tandem with horticulture and agriculture."));
+        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Solar power is the most abundant and popular renewable energy source globally, accounting for 3.6% of the global energy needs today. Solar power is best used in sunny climates in tandem with horticulture and agriculture."));
 
         //2 green bubble appear in new places
         events.Add(new EnergyGameEvent("2024-10-14 00:00:00", EnergyType.Solar, 54.9638f, -6.4930f, "United Kingdom"));
@@ -61,10 +63,10 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2025-03-12 00:00:00", EnergyType.Solar, 25.8420f, 74.7580f, "India"));
         //Hydro power is purchased
         //***ADD PURCHASING EVENT***//
-        //events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Hydro Power is the cheapest amongst all renewable energy sources, at only 2 to 4 cents (USD). Hydro power is often heavily reliant on existing natural features like rivers, high tides, and springs."));
+        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Hydro Power is the cheapest amongst all renewable energy sources, at only 2 to 4 cents (USD). Hydro power is often heavily reliant on existing natural features like rivers, high tides, and springs."));
         //Hydrogen Fueling is purchased
         //***ADD PURCHASING EVENT***//
-        //events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Hydrogen fueling provides a clean energy source for long distance travel. While it still requires much research, hydrogen fueling shows promise in heavy and long distance travel like public transport and shipments."));
+        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Hydrogen fueling provides a clean energy source for long distance travel. While it still requires much research, hydrogen fueling shows promise in heavy and long distance travel like public transport and shipments."));
 
         //More green bubbles appear in US
         events.Add(new EnergyGameEvent("2025-05-01 00:00:00", EnergyType.Wind, 41.3017f, -89.6236f, "United States of America"));
@@ -89,6 +91,7 @@ public class EventManager : MonoBehaviour
         //Geothermal power is purchased
         //***ADD PURCHASING EVENT***//
         //events.Add(new InfoGameEvent("2024-02-27 00:00:00", "While geothermal power does not have the energy capacity to compete with wind and solar, it is the most constant renewable energy source. It is especially useful in areas with lower energy demands that struggle to implement other renewable energies"));
+
         events.Add(new EnergyGameEvent("2026-02-20 00:00:00", EnergyType.Geothermal, 65.6408f, -16.8565f, "Iceland"));
         //Carbon Offsets is purchased
         //***ADD PURCHASING EVENT***//
@@ -138,7 +141,7 @@ public class EventManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (events.Count > 0) {
+        if (events.Count > 0 && !timeDateSO.isPaused) {
             GameEvent nextEvent = events.Peek();
             if (nextEvent.GetTimestamp() < timeDateSO.time) {
                 events.ExtractMin();
