@@ -29,6 +29,8 @@ public class BubbleController : MonoBehaviour
         hoverMin = transform.localPosition.y - 10f;
         hoverMax = transform.localPosition.y + 10f;
         hoverSpeed = (hoverMax - hoverMin) / 5f;
+
+        transform.localPosition += new Vector3(0f, 2f, 0f);
     }
 
     
@@ -37,7 +39,8 @@ public class BubbleController : MonoBehaviour
         // Only move bubble if time isn't paused
         if (!timeDateSO.isPaused) {
             // Bubble should oscillate between min and max hover position
-            transform.localPosition += new Vector3(0f, hoverSpeed, 0f) * Mathf.Sin(2f * Time.fixedTime) * Time.deltaTime;
+            float deltaY = hoverSpeed * Mathf.Cos(2f * Time.fixedTime) * Time.deltaTime;
+            transform.localPosition += new Vector3(0f, deltaY, 0f);
 
             // Bubble should oscillate between min and max scale
             if (transform.localScale.x < scaleMin || transform.localScale.x > scaleMax) {
