@@ -1,12 +1,20 @@
+using SharpUI.Source.Common.UI.Elements.TooltipInfo;
+using TMPro;
 using UnityEngine;
 
 public class MarkerController : MonoBehaviour
 {
+    public ITooltip hoverTooltip;
+    public TMP_Text tooltipText;
+
+    public void Awake() {
+        hoverTooltip = this.GetComponentInChildren<ITooltip>();
+    }
 
     // Start is called before the first frame update
     private void Start()
     {
-
+        hoverTooltip.BindContent(tooltipText.GetComponent<RectTransform>());
     }
 
     
@@ -37,5 +45,16 @@ public class MarkerController : MonoBehaviour
         } else {
             Debug.Log("Marker sprite not found! Color was " + color.ToString());
         }
+    }
+
+    internal void ShowTooltip()
+    {
+        var rectTransform = this.GetComponent<RectTransform>();
+        hoverTooltip.ShowToLeftOf(rectTransform);
+    }
+
+    internal void HideTooltip()
+    {
+        hoverTooltip.Hide();
     }
 }

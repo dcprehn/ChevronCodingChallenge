@@ -9,7 +9,7 @@ public class EventHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         // Check if the GameObject has the "Bubble" tag
         if (gameObject.CompareTag("Marker"))
         {
-            // GetComponent<MarkerController>().ShowTooltip();
+            GetComponent<MarkerController>().ShowTooltip();
         }
     }
 
@@ -17,7 +17,7 @@ public class EventHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     public void OnPointerExit(PointerEventData pointerEventData)
     {
         if (gameObject.CompareTag("Marker")) {
-            // GetComponent<MarkerController>().HideTooltip();
+            GetComponent<MarkerController>().HideTooltip();
         }
     }
 }
