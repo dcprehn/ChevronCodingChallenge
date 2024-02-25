@@ -19,6 +19,8 @@ public class BubbleController : MonoBehaviour
     public delegate void OnBubblePop();
     public OnBubblePop onBubblePop;
 
+    private BubbleColors color;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -53,12 +55,39 @@ public class BubbleController : MonoBehaviour
     public void Pop()
     {
         // Signal bubble pop event
+        UpdateGameData();
         onBubblePop?.Invoke();
         // Delete the bubble
         Destroy(gameObject);
     }
 
-    public void SwitchColor(BubbleColors color) {
+    private void UpdateGameData()
+    {
+        GameObject gameManager = GameObject.Find("GameManager");
+        if (gameManager != null) {
+            switch (color) {
+                case BubbleColors.Blue:
+                    gameManager.GetComponent<GameManager>().AddGreenPoints(40);
+                    break;
+                case BubbleColors.Green:
+                    gameManager.GetComponent<GameManager>().AddGreenPoints(50);
+                    gameManager.GetComponent<GameManager>().AddGreenPlant();
+                    break;
+                case BubbleColors.Red:
+                    gameManager.GetComponent<GameManager>().AddGreenPoints(10);
+                    gameManager.GetComponent<GameManager>().AddRedPlant();
+                    break;
+                case BubbleColors.Yellow:
+                    gameManager.GetComponent<GameManager>().AddGreenPoints(25);
+                    break;
+            }
+        } else {
+            Debug.Log("Could not find GameManager");
+        }
+    }
+
+    public void SwitchColor(BubbleColors newColor) {
+        this.color = newColor;
         Sprite chosenSprite = null;
         switch (color) {
             case BubbleColors.Blue:
