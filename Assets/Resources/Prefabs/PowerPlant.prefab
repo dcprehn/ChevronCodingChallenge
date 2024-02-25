@@ -52,3 +52,4 @@ MonoBehaviour:
   energyType: 0
   country: 
   bubblePrefab: {fileID: 6084775932263215385, guid: 114da5189cfd77c439982e915296e1e4, type: 3}
+  markerPrefab: {fileID: 5404842681066087134, guid: a573ad4be0febab489e37634cede03b0, type: 3}
