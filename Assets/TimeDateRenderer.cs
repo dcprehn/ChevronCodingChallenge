@@ -10,7 +10,7 @@ public class TimeDateRenderer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timeDateSO.time = new DateTime(2024, 2, 26);
+        timeDateSO.time = new DateTime(2024, 2, 24);
         timeDateSO.isPaused = false;
     }
 
