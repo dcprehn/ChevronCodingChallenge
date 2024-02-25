@@ -184,7 +184,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeDateText: {fileID: 94150316}
   timeDateSO: {fileID: 11400000, guid: 54ad0da61b62e494b9506e9b7d60a705, type: 2}
-  timeDelta: 121
+  timeDelta: 800
 --- !u!114 &67305287
 MonoBehaviour:
   m_ObjectHideFlags: 0
