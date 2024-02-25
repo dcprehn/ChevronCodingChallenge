@@ -6,6 +6,8 @@ using Aoiti.Techs;
 
 [CustomEditor(typeof(Techtree))]
 public class TechtreeEditor : Editor{
+    private string selectedTechDefinition;
+
     //positioning
     Vector2 nodeSize = new Vector2(100f, 70f);
     float minTreeHeight = 720f;
@@ -48,11 +50,25 @@ public class TechtreeEditor : Editor{
         {
             //Draw node
             Rect nodeRect = new Rect(targetTree.tree[nodeIdx].UIposition-scrollPosition, nodeSize);
-            EditorGUI.BeginFoldoutHeaderGroup(nodeRect, true, targetTree.tree[nodeIdx].tech.name, (selectedNode==targetTree.tree[nodeIdx]? selectedStyle: nodeStyle));
-            EditorGUI.LabelField(new Rect(targetTree.tree[nodeIdx].UIposition-scrollPosition+nextLineVec, nodeLabelSize), "Research Cost");
-            targetTree.tree[nodeIdx].researchCost = EditorGUI.IntField(new Rect(targetTree.tree[nodeIdx].UIposition-scrollPosition+nextLineVec+indentVec, nodeContentSize), targetTree.tree[nodeIdx].researchCost);
-            EditorGUI.LabelField(new Rect(targetTree.tree[nodeIdx].UIposition-scrollPosition+nextLineVec*2, nodeLabelSize), "Invested");
-            targetTree.tree[nodeIdx].researchInvested = EditorGUI.IntField(new Rect(targetTree.tree[nodeIdx].UIposition-scrollPosition+nextLineVec*2+indentVec, nodeContentSize), targetTree.tree[nodeIdx].researchInvested);
+            EditorGUI.BeginFoldoutHeaderGroup(nodeRect, true, targetTree.tree[nodeIdx].tech.name, (selectedNode == targetTree.tree[nodeIdx] ? selectedStyle : nodeStyle));
+            EditorGUI.LabelField(new Rect(targetTree.tree[nodeIdx].UIposition - scrollPosition + nextLineVec, nodeLabelSize), "Research Cost");
+            targetTree.tree[nodeIdx].researchCost = EditorGUI.IntField(new Rect(targetTree.tree[nodeIdx].UIposition - scrollPosition + nextLineVec + indentVec, nodeContentSize), targetTree.tree[nodeIdx].researchCost);
+
+            // Add code to handle the "Research" button click
+            Rect researchButtonRect = new Rect(targetTree.tree[nodeIdx].UIposition - scrollPosition + new Vector2(0, 40), new Vector2(100, 20));
+
+            // Disable the button if the node has been researched
+            GUI.enabled = !targetTree.tree[nodeIdx].researched;
+
+            if (GUI.Button(researchButtonRect, "Research"))
+            {
+                selectedTechDefinition = targetTree.tree[nodeIdx].tech.definition;
+                targetTree.tree[nodeIdx].researched = true; // Mark the node as researched
+            }
+
+            // Re-enable GUI
+            GUI.enabled = true;
+
             EditorGUI.EndFoldoutHeaderGroup();
 
             //Draw connections
@@ -191,6 +207,9 @@ public class TechtreeEditor : Editor{
                 }
             }
             EditorGUILayout.EndHorizontal();
+            EditorGUILayout.LabelField("Tech Definition:");
+            EditorGUILayout.TextArea(selectedTechDefinition, GUILayout.Height(50));
+
 
             EditorUtility.SetDirty(targetTree); //makes sure the changes are persitent
     }

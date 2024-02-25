@@ -7,6 +7,7 @@ namespace Aoiti.Techs
     [System.Serializable]
     public class TechNode
     {
+        public bool researched;
         public Tech tech;
         public List<Tech> requirements;
         public int researchCost;
@@ -14,6 +15,7 @@ namespace Aoiti.Techs
         public Vector2 UIposition; // required for GUI
         public TechNode(Tech tech, List<Tech> reqs, int cost, Vector2 position)
         {
+            this.researched = false;
             this.tech = tech;
             this.requirements = reqs;
             this.researchCost = cost;
@@ -90,6 +92,13 @@ namespace Aoiti.Techs
             foreach (Tech t in allConnectedThroughChildren)
             {
                 if (tree[idx].requirements.Contains(t)) tree[idx].requirements.Remove(t);
+            }
+        }
+        public void ResetTechtree()
+        {
+            foreach (var node in tree)
+            {
+                node.researched = false;
             }
         }
     }
