@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 2028788681940379612}
   - component: {fileID: -9056551357195785558}
   - component: {fileID: -4302137168911616483}
+  - component: {fileID: -7910724778206652907}
   m_Layer: 0
   m_Name: Marker
-  m_TagString: Untagged
+  m_TagString: Marker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -95,5 +96,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6fe65d3c01d3ec44975a6ab31189552, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-7910724778206652907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5404842681066087134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ab8eec243704224d981149f4748f1a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
