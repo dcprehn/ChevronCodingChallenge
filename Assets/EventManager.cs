@@ -20,7 +20,7 @@ public class EventManager : MonoBehaviour
         events.Add(new TradeGameEvent("2024-03-13 00:00:00", 32.1944f, 119.6998f, 25.9400f, 49.6880f));
         //Wind power is purchased
         //***ADD PURCHASING EVENT***//
-        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Wind power is the cheapest renewable energy per kWh. China is the world leader in wind power generating 655,600 GWh. Did you know that offshore wind power has the potential of generating 18 time the current global energy demand!"));
+        events.Add(new InfoGameEvent("2024-05-10 00:00:00", "Wind power is the cheapest renewable energy per kWh. China is the world leader in wind power generating 655,600 GWh. Did you know that offshore wind power has the potential of generating 18 time the current global energy demand!"));
         
         //Green bubble appears at mines
         events.Add(new EnergyGameEvent("2024-05-10 00:00:00", EnergyType.Wind, 39.7606f, -105.2150f, "Colorado School of Mines"));
@@ -33,9 +33,7 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2024-07-11 00:00:00", EnergyType.Wind, 30.9514f, -102.4141f, "United States of America"));
         events.Add(new EnergyGameEvent("2024-07-26 00:00:00", EnergyType.Wind, 43.5548f, -92.7241f, "United States of America"));
         events.Add(new InfoGameEvent("2024-08-05 00:00:00", "It looks like renewable energy is spreading! Each region has different energy needs that utilize some technologies better than others. Keep upgrading the ‘Renewable Fuels’ branch in the technology tree to find out what technologies are used in each region and why."));
-        //Solar power is purchased
-        //***ADD PURCHASING EVENT***//
-        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Solar power is the most abundant and popular renewable energy source globally, accounting for 3.6% of the global energy needs today. Solar power is best used in sunny climates in tandem with horticulture and agriculture."));
+        events.Add(new InfoGameEvent("2024-09-10 00:00:00", "Solar power is the most abundant and popular renewable energy source globally, accounting for 3.6% of the global energy needs today. Solar power is best used in sunny climates in tandem with horticulture and agriculture."));
 
         //2 green bubble appear in new places
         events.Add(new EnergyGameEvent("2024-10-14 00:00:00", EnergyType.Solar, 54.9638f, -6.4930f, "United Kingdom"));
@@ -61,12 +59,8 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2025-02-21 00:00:00", EnergyType.Solar, 16.3893f, 78.6621f, "India"));
         events.Add(new EnergyGameEvent("2025-03-09 00:00:00", EnergyType.Solar, 10.4560f, 77.9240f, "India"));
         events.Add(new EnergyGameEvent("2025-03-12 00:00:00", EnergyType.Solar, 25.8420f, 74.7580f, "India"));
-        //Hydro power is purchased
-        //***ADD PURCHASING EVENT***//
-        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Hydro Power is the cheapest amongst all renewable energy sources, at only 2 to 4 cents (USD). Hydro power is often heavily reliant on existing natural features like rivers, high tides, and springs."));
-        //Hydrogen Fueling is purchased
-        //***ADD PURCHASING EVENT***//
-        // events.Add(new InfoGameEvent("2024-02-27 00:00:00", "Hydrogen fueling provides a clean energy source for long distance travel. While it still requires much research, hydrogen fueling shows promise in heavy and long distance travel like public transport and shipments."));
+        events.Add(new InfoGameEvent("2025-03-20 00:00:00", "Hydro Power is the cheapest amongst all renewable energy sources, at only 2 to 4 cents (USD). Hydro power is often heavily reliant on existing natural features like rivers, high tides, and springs."));
+        events.Add(new InfoGameEvent("2025-04-10 00:00:00", "Hydrogen fueling provides a clean energy source for long distance travel. While it still requires much research, hydrogen fueling shows promise in heavy and long distance travel like public transport and shipments."));
 
         //More green bubbles appear in US
         events.Add(new EnergyGameEvent("2025-05-01 00:00:00", EnergyType.Wind, 41.3017f, -89.6236f, "United States of America"));
@@ -88,14 +82,9 @@ public class EventManager : MonoBehaviour
 
         //Iceland Hint
         events.Add(new InfoGameEvent("2026-01-03 00:00:00", "Did you know that 66% of Icelands energy comes from geothermal energy plants?"));
-        //Geothermal power is purchased
-        //***ADD PURCHASING EVENT***//
-        //events.Add(new InfoGameEvent("2024-02-27 00:00:00", "While geothermal power does not have the energy capacity to compete with wind and solar, it is the most constant renewable energy source. It is especially useful in areas with lower energy demands that struggle to implement other renewable energies"));
-
+        events.Add(new InfoGameEvent("2026-01-20 00:00:00", "While geothermal power does not have the energy capacity to compete with wind and solar, it is the most constant renewable energy source. It is especially useful in areas with lower energy demands that struggle to implement other renewable energies"));
         events.Add(new EnergyGameEvent("2026-02-20 00:00:00", EnergyType.Geothermal, 65.6408f, -16.8565f, "Iceland"));
-        //Carbon Offsets is purchased
-        //***ADD PURCHASING EVENT***//
-        //events.Add(new InfoGameEvent("2026-04-05 00:00:00", "Carbon offsets are a medium for individuals and corporations to be held accountable for their greenhouse emissions. Entities can trade emissions by investing in renewable projects simultaneously. By applying social and political pressure to large entities, we can help reduce the impact of their carbon emissions via carbon offsets."));
+        events.Add(new InfoGameEvent("2026-03-10 00:00:00", "Carbon offsets are a medium for individuals and corporations to be held accountable for their greenhouse emissions. Entities can trade emissions by investing in renewable projects simultaneously. By applying social and political pressure to large entities, we can help reduce the impact of their carbon emissions via carbon offsets."));
         //Yellow bubble appears in Saudi Arabia
         events.Add(new InfoGameEvent("2026-04-15 00:00:00", "Yellow bubbles are indicators that a social, economic, or political event has turned the tide of renewable energy in a specific region. These events can be positive and influence renewable growth in a region or lead to implementation of non-renewable energy plants. These events also have the chance of developing new technologies for you."));
         events.Add(new EvolutionGameEvent("2026-04-16 00:00:00", 25.9400f, 49.6880f, "Following COP30, oil companies in the Middle East begin Carbon Offsetting practices to reduce their carbon footprint."));
