@@ -12,6 +12,9 @@ public class BubbleController : MonoBehaviour
     private float hoverMax;
     private float hoverSpeed;
 
+    // Time Date
+    public TimeDateSO timeDateSO;
+
     // Delegates
     public delegate void OnBubblePop();
     public OnBubblePop onBubblePop;
@@ -31,14 +34,17 @@ public class BubbleController : MonoBehaviour
     
     // Update is called every frame
     private void Update() {
-        // Bubble should oscillate between min and max hover position
-        transform.localPosition += new Vector3(0f, hoverSpeed, 0f) * Mathf.Sin(2f * Time.fixedTime) * Time.deltaTime;
+        // Only move bubble if time isn't paused
+        if (!timeDateSO.isPaused) {
+            // Bubble should oscillate between min and max hover position
+            transform.localPosition += new Vector3(0f, hoverSpeed, 0f) * Mathf.Sin(2f * Time.fixedTime) * Time.deltaTime;
 
-        // Bubble should oscillate between min and max scale
-        if (transform.localScale.x < scaleMin || transform.localScale.x > scaleMax) {
-            scaleSpeed *= -1;
+            // Bubble should oscillate between min and max scale
+            if (transform.localScale.x < scaleMin || transform.localScale.x > scaleMax) {
+                scaleSpeed *= -1;
+            }
+            transform.localScale += new Vector3(scaleSpeed, scaleSpeed, 0f) * Time.deltaTime;
         }
-        transform.localScale += new Vector3(scaleSpeed, scaleSpeed, 0f) * Time.deltaTime;
     }
 
     public void Pop()

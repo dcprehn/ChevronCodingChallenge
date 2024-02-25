@@ -10,7 +10,7 @@ public class InfoGameEvent : GameEvent
     public InfoGameEvent(string date, string description) : base(date) {
         this.description = description;
 
-        this.dialogPrefab = Resources.Load<GameObject>("Prefabs/DialogDefault");
+        this.dialogPrefab = Resources.Load<GameObject>("Prefabs/InfoDialog");
         this.timeDateSO = Resources.Load<TimeDateSO>("ScriptableObjects/TimeDate");
     }
     public override void ExecuteEvent()
