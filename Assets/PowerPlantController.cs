@@ -57,6 +57,8 @@ public class PowerPlantController : MonoBehaviour
         // Calculate the marker position, based on the original position of the bubble
         // Marker should be positioned so that the tip is positioned at location of the powerplant
         marker.transform.localPosition += new Vector3(0f, marker.GetComponent<SpriteRenderer>().sprite.bounds.size.y * marker.transform.localScale.y * (3f / 8f), 0f);
+        // Log message about new powerplant
+        Debug.Log("New Powerplant!\nEnergy: " + energyType.ToString() + "\nCountry: " + country);
     }
 
     // Start is called before the first frame update

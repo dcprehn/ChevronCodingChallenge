@@ -46,6 +46,7 @@ public class TradeGameEvent : GameEvent
                 color = Color.cyan,
                 renderQueue = 0
             };
+            Debug.Log("New Trade Route!\nStart location: (" + coords1.latitude + ", " + coords1.longitude + ")\nEnd location: (" + coords2.latitude + ", " + coords2.longitude + ")");
         } else {
             Debug.LogError("TradeRoutes not found in the scene");
         }

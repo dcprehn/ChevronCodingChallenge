@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
     {
         renewableEnergyRating = 20;
         greenPoints = 0;
-        maxGreenPoints = 1000;
+        maxGreenPoints = 5000;
         numRedPowerplants = 0;
         numGreenPowerPlants = 0;
     }

@@ -16,14 +16,14 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2024-03-06 00:00:00", EnergyType.Coal, 32.1944f, 119.6998f, "China"));
         events.Add(new EnergyGameEvent("2024-03-08 00:00:00", EnergyType.Gas, 25.9400f, 49.6880f, "Saudi Arabia"));
         events.Add(new EnergyGameEvent("2024-03-11 00:00:00", EnergyType.Oil, 48.7872f, 2.4033f, "France"));
-        events.Add(new InfoGameEvent("2024-03-12 00:00:00", "Red bubbles are indicators that a non-renewable energy plant has been created. Too many red bubbles will lose you the game! Red bubbles can be a result of neglecting a country’s energy needs, economic struggles, or political power moves"));
+        events.Add(new InfoGameEvent("2024-03-12 00:00:00", "Red bubbles are indicators that a non-renewable energy plant has been created. Too many red bubbles will lose you the game! Red bubbles can be a result of neglecting a country’s energy needs, economic struggles, or political power moves."));
         //Wind power is purchased
         //***ADD PURCHASING EVENT***//
         events.Add(new InfoGameEvent("2024-05-10 00:00:00", "Wind power is the cheapest renewable energy per kWh. China is the world leader in wind power generating 655,600 GWh. Did you know that offshore wind power has the potential of generating 18 time the current global energy demand!"));
         
         //Green bubble appears at mines
         events.Add(new EnergyGameEvent("2024-05-10 00:00:00", EnergyType.Wind, 39.7606f, -105.2150f, "Colorado School of Mines"));
-        events.Add(new InfoGameEvent("2024-05-11 00:00:00", "Green bubbles are indicators that a renewable energy plant has been created. Pop-each green bubble to earn ‘Green Points’ that can be used in the technology tree."));
+        events.Add(new InfoGameEvent("2024-05-11 00:00:00", "Green bubbles are indicators that a renewable energy plant has been created. Pop each green bubble to earn ‘Green Points’ that can be used in the technology tree."));
         
         //5 Green bubble appears across US
         events.Add(new EnergyGameEvent("2024-05-25 00:00:00", EnergyType.Wind, 35.1011f, -118.3372f, "United States of America"));
@@ -76,11 +76,11 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2025-09-19 00:00:00", EnergyType.Hydro, 31.4837f, 103.6032f, "China"));
         events.Add(new EnergyGameEvent("2025-10-02 00:00:00", EnergyType.Hydro, 47.3925f, 8.0442f, "Switzerland"));
         //Blue bubble appears in USA and CAN
-        //***ADD BLUE BUBBLE EVENT***//
-        //events.Add(new InfoGameEvent("2024-10-27 00:00:00", "Blue bubbles are indicators that a clean energy trade route has been established. Countries that do not have access to renewable energies may instead import clean energy from countries with a surplus. Keep upgrading the ‘Hydrogen Fueling’ branch to increase the range of exports."));
+        events.Add(new TradeGameEvent("2025-11-15 00:00:00", 35.1011f, -118.3372f, 44.9169f, -94.7356f));
+        events.Add(new InfoGameEvent("2024-11-16 00:00:00", "Blue bubbles are indicators that a clean energy trade route has been established. Countries that do not have access to renewable energies may instead import clean energy from countries with a surplus. Keep upgrading the ‘Hydrogen Fueling’ branch to increase the range of exports."));
 
         //Iceland Hint
-        events.Add(new InfoGameEvent("2026-01-03 00:00:00", "Did you know that 66% of Icelands energy comes from geothermal energy plants?"));
+        events.Add(new InfoGameEvent("2026-01-03 00:00:00", "Did you know that 66% of Iceland's energy comes from geothermal energy plants?"));
         events.Add(new InfoGameEvent("2026-01-20 00:00:00", "While geothermal power does not have the energy capacity to compete with wind and solar, it is the most constant renewable energy source. It is especially useful in areas with lower energy demands that struggle to implement other renewable energies"));
         events.Add(new EnergyGameEvent("2026-02-20 00:00:00", EnergyType.Geothermal, 65.6408f, -16.8565f, "Iceland"));
         events.Add(new InfoGameEvent("2026-03-10 00:00:00", "Carbon offsets are a medium for individuals and corporations to be held accountable for their greenhouse emissions. Entities can trade emissions by investing in renewable projects simultaneously. By applying social and political pressure to large entities, we can help reduce the impact of their carbon emissions via carbon offsets."));
@@ -96,7 +96,7 @@ public class EventManager : MonoBehaviour
         events.Add(new EnergyGameEvent("2026-07-02 00:00:00", EnergyType.Hydro, 36.2399f, -106.4230f, "United States of America"));
 
         //Yellow bubble appears in France
-        events.Add(new EvolutionGameEvent("2026-07-29 00:00:00", 48.7872f, 2.4033f, "With increasing awareness of ecocide in European states, the EU is pushed to sign a treaty to go carbon neutral by 2050. You have developed a new technology— Carbon Capture!"));
+        events.Add(new EvolutionGameEvent("2026-07-29 00:00:00", 48.7872f, 2.4033f, "With increasing awareness of ecocide in European states, the EU is pushed to sign a treaty to go carbon neutral by 2050. You have developed a new technology — Carbon Capture!"));
         //Carbon Capture technology is given for free
         events.Add(new InfoGameEvent("2026-08-20 00:00:00", "Carbon Capture helps reduce emissions in areas with high concentrations of greenhouse gasses by physically removing carbon from the atmosphere. Upgrading this branch increases the chances of a red bubble turning green."));
         //5 green bubbles appear around yellow bubble region

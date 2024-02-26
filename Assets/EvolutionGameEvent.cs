@@ -41,6 +41,7 @@ public class EvolutionGameEvent : GameEvent
             dialog.GetComponent<Dialog>().SetCloseButtonVisible(false);
             dialog.GetComponent<Dialog>().Show();
             timeDateSO.Pause();
+            Debug.Log("New Game Evolution!\nDate: " + this.timestamp.ToString());
         } else {
             Debug.LogError("UI Canvas not found in the scene");
         }
